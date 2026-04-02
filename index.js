@@ -1,6 +1,12 @@
 require("dotenv").config();
 const { Client, GatewayIntentBits } = require("discord.js");
 const Groq = require("groq-sdk");
+const express = require("express");
+
+// ── Keep Alive Server ──────────────────────────────────────
+const app = express();
+app.get("/", (req, res) => res.send("Bot is running!"));
+app.listen(3000);
 
 // ── Constants ──────────────────────────────────────────────
 const GROQ_MODEL = "llama-3.1-8b-instant";
