@@ -123,9 +123,7 @@ client.on("messageCreate", async (message) => {
   // 🎯 Protect all listed users
   const protected_ = getProtectedUser(mentionedUser, targetText);
   if (protected_) {
-    const sent = await message.reply({ content: "Nice try 😂", files: [protected_.video] });
-    await sent.edit("Nice try 😂");
-    return;
+    return message.reply(`Nice try 😂 <${protected_.video}>`);
   }
 
   const football = isFootball(targetText);
